@@ -28,7 +28,14 @@ class Action:
     right = Vector2(0, 1)
     left = Vector2(0, -1)
 def controller(key):
-    return Action.up
+    if key == pg.K_w:
+        return Action.up
+    if key == pg.K_s:
+        return Action.down
+    if key == pg.K_a:
+        return Action.left
+    if key == pg.K_d:
+        return Action.right
 
 class Snake:
     def __init__(self, pos):
