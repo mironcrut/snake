@@ -8,7 +8,7 @@ screen = pg.display.set_mode(DISPLAY)
 clock = pg.time.Clock()
 
 snake = Snake([10, 10])
-world = World()
+world = World(field)
 food = Food([12, 12])
 
 while True:
@@ -16,11 +16,14 @@ while True:
         if event.type == pg.QUIT:
             exit()
         if event.type == pg.KEYDOWN:
-            action = controller(event.key)
-            snake.move(action)
+            if event.key in Action.keys:
+                action = controller(event.key)
+                snake.move(action)
 
+    snake.update()
+    world.update(snake, food)
     screen.fill("black")
-    world.draw(screen, field, snake, food)
+    world.draw(screen, snake, food)
     pg.display.update()
 
     clock.tick(FPS)

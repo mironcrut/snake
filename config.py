@@ -1,7 +1,7 @@
 SIZE = 30
 FIELD_WIDTH, FIELD_HEIGHT = 30, 30
 DISPLAY = DW, DH = FIELD_WIDTH * SIZE, FIELD_HEIGHT * SIZE
-FPS = 60
+FPS = 3
 
 
 COLOR_GROUND = "black"
@@ -10,4 +10,5 @@ COLOR_SNAKE_BODY = "yellow"
 COLOR_FOOD = "red"
 
 
+START_LENGTH = 5
 field = [[0] * FIELD_WIDTH for _ in range(FIELD_HEIGHT)]
