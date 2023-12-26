@@ -1,10 +1,23 @@
+import pygame as pg
 from pygame import Vector2
+from config import *
+
+pg.init()
 
 class World:
-    def __init__(self):
-        pass
-    def draw(self, field, snake, food):
-        pass
+    @staticmethod
+    def draw(screen, field, snake, food):
+        for y in range(FIELD_HEIGHT):
+            for x in range(FIELD_WIDTH):
+                color = COLOR_GROUND
+                if Vector2(y, x) == snake.pos:
+                    color = COLOR_SNAKE_HEAD
+                elif Vector2(y, x) == food.pos:
+                    color = COLOR_FOOD
+                elif field[y][x] > 0:
+                    color = COLOR_SNAKE_BODY
+                pos = x * SIZE + SIZE // 2, y * SIZE + SIZE // 2
+                pg.draw.circle(screen, color, pos, SIZE // 2, 5)
 
 class Food:
     def __init__(self, pos):

@@ -20,7 +20,7 @@ while True:
             snake.move(action)
 
     screen.fill("black")
-    world.draw(field, snake, food)
+    world.draw(screen, field, snake, food)
     pg.display.update()
 
     clock.tick(FPS)
